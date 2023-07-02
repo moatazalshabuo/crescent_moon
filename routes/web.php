@@ -25,7 +25,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('check_notifecation',[HomeController::class,"notifecation"]);
+Route::get('check_notifecation',[HomeController::class,"notifecation"])->name("check_noti");
 Route::get("remove_noti",[HomeController::class,"remove_noti"]);
 Route::post('/login-user', [App\Http\Controllers\LoginCoustomController::class, 'index'])->name('login-user');
 Route::post('/register-user', [App\Http\Controllers\RegisterController::class, 'index'])->name('register-user');
@@ -41,9 +41,9 @@ Route::controller(AdminController::class)->group(function () {
             Route::delete("users","delete")->name("admin.delete");
             Route::get("users/active","active")->name("admin.active");
             Route::get("confirm-order","confirm_page")->name("admin.confirmOrder");
-            Route::post("accept-order","accept_order");
-            Route::post("unaccept-order","unaccept_order");
-            Route::post("active_users","active_users");
+            Route::post("accept-order","accept_order")->name("admin.accept.order");
+            Route::post("unaccept-order","unaccept_order")->name("admin.unaccept.order");
+            Route::post("active_users","active_users")->name("admin.active_user");
         });
     });
 });

@@ -146,7 +146,7 @@
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                        axios.get("/admin/users/active", {
+                        axios.get("{{route('admin.active')}}", {
                             params: {
                                 ids: selected
                             }
@@ -172,7 +172,7 @@
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                        axios.delete("/admin/users", {
+                        axios.delete("{{route('admin.delete')}}", {
                             data: {
                                 ids: selected
                             }
@@ -200,7 +200,7 @@
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                        axios.get("/admin/users/active", {
+                        axios.get("{{route('admin.active')}}", {
                             params: {
                                 ids: selected
                             }
@@ -226,7 +226,7 @@
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                        axios.delete("/admin/users", {
+                        axios.delete("{{route('admin.delete')}}", {
                             data: {
                                 ids: selected
                             }

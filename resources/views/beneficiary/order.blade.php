@@ -59,7 +59,7 @@
                 }).get()
                 if (selectedItem.length > 0 && $("#qauntity").val() != undefined && $("#qauntity").val() !=
                     "" && $("#qauntity").val() > 0) {
-                    axios.post("/beneficiary/order", {
+                    axios.post("{{route('beneficiary.add_order')}}", {
                         _token: $("input[name=_token]").val(),
                         qauntity: $("#qauntity").val(),
                         ids: selectedItem

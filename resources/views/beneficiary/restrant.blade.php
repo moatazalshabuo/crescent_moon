@@ -47,7 +47,7 @@
         $(function(){
             $("#select-restrant").select2()
             $("#select-restrant").change(function(){
-                location.replace(`/beneficiary/order/${$(this).val()}`)
+                location.replace(`{{route('beneficiary.order','')}}/${$(this).val()}`)
             })
         })
     </script>

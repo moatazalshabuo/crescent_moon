@@ -252,7 +252,7 @@
         $(function() {
             $('.save-user').click(function() {
                 $("#donors-error").text("")
-                axios.post("/admin/store-user/", $("#form-donors").serialize())
+                axios.post("{{route('admin.store')}}", $("#form-donors").serialize())
                     .then((res) => {
                         $(".modal").modal("hide");
                         Swal.fire("تم الادخال بنجاح", "", "success").then(() => {
@@ -274,7 +274,7 @@
 
             $(".save-beneficiaries").click(function() {
                 $("#beneficiaries-error").text("")
-                axios.post("/admin/store-user/", $("#form-beneficiaries").serialize())
+                axios.post("{{route('admin.store')}}", $("#form-beneficiaries").serialize())
                     .then((res) => {
                         $(".modal").modal("hide");
                         Swal.fire("تم الادخال بنجاح", "", "success").then(() => {
@@ -304,7 +304,7 @@
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                        axios.delete("/admin/users", {
+                        axios.delete("{{route('admin.delete')}}", {
                             data: {
                                 ids: selected
                             }
@@ -331,7 +331,7 @@
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                        axios.delete("/admin/users", {
+                        axios.delete("{{route('admin.delete')}}", {
                             data: {
                                 ids: selected
                             }
@@ -358,7 +358,7 @@
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                        axios.post("/admin/active_users", {'ids': selected,"_token":"{{ csrf_token() }}"}).then((res) => {
+                        axios.post("{{ route('admin.active_user') }}", {'ids': selected,"_token":"{{ csrf_token() }}"}).then((res) => {
                             Swal.fire('تم التفعيل!', '', 'success').then(() => {
                                 location.reload()
                             })
@@ -381,7 +381,7 @@
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                        axios.post("/admin/active_users", {'ids': selected,"_token":"{{ csrf_token() }}"}).then((res) => {
+                        axios.post("{{ route('admin.active_user') }}", {'ids': selected,"_token":"{{ csrf_token() }}"}).then((res) => {
                             Swal.fire('تم التفعيل!', '', 'success').then(() => {
                                 location.reload()
                             })

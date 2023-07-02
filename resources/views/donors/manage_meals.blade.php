@@ -228,7 +228,7 @@
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                    axios.delete("/donors/meals", {
+                    axios.delete("{{route('meals.delete')}}", {
                         data: {
                             ids: selectedItem
                         }

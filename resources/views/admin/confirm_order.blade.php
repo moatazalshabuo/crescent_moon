@@ -79,7 +79,7 @@
                     return $(this).val()
                 }).get()
                 if (selectedItem.length > 0 ) {
-                    axios.post("/admin/accept-order", {
+                    axios.post("{{route('admin.accept.order')}}", {
                         _token: $("input[name=_token]").val(),
                         ids: selectedItem
                     }).then((res) => {
@@ -101,7 +101,7 @@
                     return $(this).val()
                 }).get()
                 if (selectedItem.length > 0 ) {
-                    axios.post("/admin/unaccept-order", {
+                    axios.post("{{route('admin.unaccept.order')}}", {
                         _token: $("input[name=_token]").val(),
                         ids: selectedItem
                     }).then((res) => {

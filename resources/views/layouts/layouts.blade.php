@@ -220,7 +220,7 @@
             });
 
             function check_notiaction() {
-                axios.get("/check_notifecation").then((res) => {
+                axios.get("{{route('check_noti')}}").then((res) => {
                     // console.log(res)
                     var count = res.data.count;
                     var data = res.data.data;
