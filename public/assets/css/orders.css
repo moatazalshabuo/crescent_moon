@@ -1,0 +1,7 @@
+label{
+    font-weight: 700;
+}
+.table_avilbls{
+    height: 15rem;
+    overflow-y: auto;
+}

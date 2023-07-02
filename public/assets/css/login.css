@@ -1,0 +1,24 @@
+.dis{
+    padding-top: 7rem;
+}
+.r{
+    direction: rtl;
+}
+.my-bg{
+    border-radius: 5px;
+    color: white;
+    background: url(../images/reservation-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.hi{
+    height: 25rem;
+}
+.log{
+    border-radius: 100%;
+}
+@media screen and (max-width: 580px){
+    .hi2{
+        height: 50rem;
+    }
+}
