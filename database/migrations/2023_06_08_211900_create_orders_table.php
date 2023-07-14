@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId("meals_id")->constrained("meals");
             $table->foreignId("user_id")->constrained("users");
             $table->integer("qauntity");
+            $table->integer("natifecation")->default(1);
             $table->boolean("status")->default(0);
             $table->timestamps();
         });

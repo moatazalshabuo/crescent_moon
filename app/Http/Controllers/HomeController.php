@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\User;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $restrant = User::where('type_user',2)->get();
+        return view('home',compact('restrant'));
     }
 
     public function notifecation(){

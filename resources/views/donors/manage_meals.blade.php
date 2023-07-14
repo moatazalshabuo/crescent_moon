@@ -150,7 +150,7 @@
 
             $('.save-meals').click(function() {
                 $("#meals-error").text("")
-                axios.post("/donors/store-meals/", $("#form-meals").serialize())
+                axios.post("{{route('meals.store')}}", $("#form-meals").serialize())
                     .then((res) => {
                         $(".modal").modal("hide");
                         Swal.fire("تم الادخال بنجاح", "", "success").then(() => {
@@ -173,7 +173,7 @@
                 }).get()
                 if (selectedItem.length > 0 && $("#qauntity").val() != undefined && $("#qauntity").val() !=
                     "" && $("#qauntity").val() > 0) {
-                    axios.put("/donors/meals/", {
+                    axios.put("{{ route('meals.update.qauntit') }}", {
                         _token: $("input[name=_token]").val(),
                         qauntity: $("#qauntity").val(),
                         ids: selectedItem
@@ -196,7 +196,7 @@
                 }).get()
                 if (selectedItem.length > 0 && $("#qauntity").val() != undefined && $("#qauntity").val() !=
                     "" && $("#qauntity").val() > 0) {
-                    axios.put("/donors/meals/min", {
+                    axios.put("{{ route('meals.update.qauntit.min') }}", {
                         _token: $("input[name=_token]").val(),
                         qauntity: $("#qauntity").val(),
                         ids: selectedItem

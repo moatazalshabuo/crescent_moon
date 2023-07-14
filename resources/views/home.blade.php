@@ -136,71 +136,18 @@
         <div class="menu-item-carousel">
             <div class="col-lg-12">
                 <div class="owl-menu-item owl-carousel">
+                    @foreach ($restrant as $item)
                     <div class="item">
                         <div class='card card1'>
                             <div class='info'>
-                                <h1 class='title'>الشامي</h1>
-                                <p class='description'>العنوان</p>
+                                <h1 class='title'>{{$item->name}} {{$item->address}}</h1>
+                                <p class='description'>العنوان : {{$item->address}}</p>
                                 <hr>
-                                <p class="mb-5 p-4 text-white">رقم الهاتف</p>
+                                <p class="mb-5 p-4 text-white">رقم الهاتف : {{ $item->phone }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class='card card2'>
-
-                            <div class='info'>
-                                <h1 class='title'>تشيكن رويال</h1>
-                                <p class='description'>العنوان</p>
-                                <hr>
-                                <p class="mb-5 p-4 text-white">رقم الهاتف</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class='card card3'>
-
-                            <div class='info'>
-                                <h1 class='title'>النبراس</h1>
-                                <p class='description'>العنوان</p>
-                                <hr>
-                                <p class="mb-5 p-4 text-white">رقم الهاتف</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class='card card4'>
-
-                            <div class='info'>
-                                <h1 class='title'>الكاضم</h1>
-                                <p class='description'>العنوان</p>
-                                <hr>
-                                <p class="mb-5 p-4 text-white">رقم الهاتف</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class='card card5'>
-
-                            <div class='info'>
-                                <h1 class='title'>ستيك هاوس</h1>
-                                <p class='description'>العنوان</p>
-                                <hr>
-                                <p class="mb-5 p-4 text-white">رقم الهاتف</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class='card card3'>
-
-                            <div class='info'>
-                                <h1 class='title'>النبراس</h1>
-                                <p class='description'>العنوان</p>
-                                <hr>
-                                <p class="mb-5 p-4 text-white">رقم الهاتف</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
