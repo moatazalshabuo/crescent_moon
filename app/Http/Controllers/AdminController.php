@@ -51,7 +51,7 @@ class AdminController extends Controller
             'username' => ['required', 'string', 'max:255', 'unique:users,username'],
             'password' => ['required', 'string', 'min:8'],
             "name" => ['required'],
-            "Nati_Id" => ["required", 'string', 'min:12'],
+            // "Nati_Id" => ["required", 'string', 'min:12'],
             "phone" => ["required"],
             "address" => ["required"]
         ], [

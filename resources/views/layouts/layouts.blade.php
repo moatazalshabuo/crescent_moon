@@ -71,6 +71,12 @@
                                             <li><a href="{{ route('donors.ManageMeals') }}">ادارة التبرعات</a></li>
                                         @elseif(Auth::user()->type_user == 3)
                                             <li><a href="{{ route('beneficiary.restrant') }}">قائمة المتبرعين</a></li>
+                                        @elseif(Auth::user()->type_user == 4)
+                                            <li><a href="{{ route('admin.confirmOrder') }}">قبول الطلبات</a></li>
+                                        @elseif(Auth::user()->type_user == 5)
+                                            <li><a href="{{ route('admin.users') }}">ادارة المستخدمين</a></li>
+                                            <li><a href="{{ route('admin.control_users') }}">قبول المستخدمين</a></li>
+                                            <li><a href="{{ route('admin.confirmOrder') }}">قبول الطلبات</a></li>
                                         @endif
 
                                         <li>
@@ -220,7 +226,7 @@
             });
 
             function check_notiaction() {
-                axios.get("{{route('check_noti')}}").then((res) => {
+                axios.get("{{ route('check_noti') }}").then((res) => {
                     // console.log(res)
                     var count = res.data.count;
                     var data = res.data.data;

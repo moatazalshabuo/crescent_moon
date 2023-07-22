@@ -38,7 +38,7 @@
                     <div class="row">
                         <div class="col-sm">
                             <div class="back-bg-color mt-2 user-table nice">
-                                <table class="table table-hover dataTable" >
+                                <table class="table table-hover dataTable">
                                     <form action="" method="post">
                                         <thead>
                                             <tr>
@@ -50,13 +50,39 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($user as $key => $item)
-                                                <tr>
-                                                    <th scope="row">{{ $key + 1 }}</th>
-                                                    <td>{{ $item->name }}</td>
-                                                    <td>ادمن</td>
-                                                    <td><input type="checkbox" class="selected_user"
-                                                            value="{{ $item->id }}"></td>
-                                                </tr>
+                                                @if ($item->type_user == 1 && Auth::user()->type_user == 1)
+                                                    <tr>
+                                                        <th scope="row">{{ $key + 1 }}</th>
+                                                        <td>{{ $item->name }}</td>
+                                                        <td>
+                                                            @if($item->type_user == 1)
+                                                            مسؤول النظام
+                                                            @elseif($item->type_user == 4)
+                                                            مدير في النظام
+                                                            @else
+                                                            موظف استقبال
+                                                            @endif
+                                                        </td>
+                                                        <td><input type="checkbox" class="selected_user"
+                                                                value="{{ $item->id }}"></td>
+                                                    </tr>
+                                                @else
+                                                    <tr>
+                                                        <th scope="row">{{ $key + 1 }}</th>
+                                                        <td>{{ $item->name }}</td>
+                                                        <td>
+                                                            @if($item->type_user == 1)
+                                                            مسؤول النظام
+                                                            @elseif($item->type_user == 4)
+                                                            مدير في النظام
+                                                            @else
+                                                            موظف استقبال
+                                                            @endif
+                                                        </td>
+                                                        <td><input type="checkbox" class="selected_user"
+                                                                value="{{ $item->id }}"></td>
+                                                    </tr>
+                                                @endif
                                             @endforeach
                                         </tbody>
                                 </table>
@@ -68,7 +94,8 @@
                         <div class="col-sm-7 mt-3">
                             <button type="button" class="btn btn-primary mr-2" data-toggle="modal"
                                 data-target="#employe_Modal"><i class="fa-solid fa-plus"></i> اضافة موظف</button>
-                            <button type="button" class="btn btn-danger delete_user"><i class="fa-solid fa-delete-left"></i> حذف
+                            <button type="button" class="btn btn-danger delete_user"><i
+                                    class="fa-solid fa-delete-left"></i> حذف
                                 موظف</button>
                         </div>
                         </form>
@@ -208,7 +235,7 @@
 
             $('.save-user').click(function() {
                 $("#donors-error").text("")
-                axios.post("{{route('admin.store')}}", $("#form-donors").serialize())
+                axios.post("{{ route('admin.store') }}", $("#form-donors").serialize())
                     .then((res) => {
                         $(".modal").modal("hide");
                         Swal.fire("تم الادخال بنجاح", "", "success").then(() => {
@@ -239,7 +266,7 @@
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                        axios.delete("{{route('admin.delete')}}", {
+                        axios.delete("{{ route('admin.delete') }}", {
                             data: {
                                 ids: selected
                             }
